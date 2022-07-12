@@ -1,0 +1,510 @@
+---
+title: "TRABAJO FINAL- FACULTAD DE CIENCIAS SOCIALES-PUCP"
+author: "ROSALES AEDO, ASTRID CIELO"
+semestre: 2022-I
+output:
+  html_document:
+    toc: true
+    theme: united
+grupo: Grupo 4
+curso: POL 304- ESTADÍSTICA PARA EL ANÁLISIS POLÍTICO 2
+reporte: REPORTE INDIVIDUAL
+---
+
+<style type="text/css">
+h1.title {
+  font-size: 14px;
+  color: Gray;
+  font-style: italic;
+  }
+h1{
+  font-size: 14pt;
+  }
+h2{
+  font-size: 12pt;
+  font-weight: bold;
+  }
+body{
+  font-size: 12pt;
+  font-family: Times Roman;
+  text-align: justify;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+<h1 style="text-align: center;">**AUTOCRATIZACIÓN**</h1>
+
+## 1. INTRODUCIÓN:
+
+¿La autocratización cambia la naturaleza? La autocratización es el proceso inverso a la democratización. Es un proceso que limita o cancela el ejercicio de derechos y libertades, reduce o suprime el pluralismo y la oposición política, y favorece a que el poder del gobierno se ejerza de forma discrecional, sin controles ni rendición de cuentas públicas.
+
+El presente informe es un reporte sobre la Democracia 2022 realizado por el insituto V-Dem, que ofrece varios indicios de que los procesos de autocratización están pasando de los cambios graduales a una evolución más contundente. Los líderes parecen estar tomando medidas más audaces ahora que en el pasado. 
+
+Tres áreas señalan esta naturaleza cambiante de la autocratización. En primer lugar, cinco golpes militares y un autogolpe en 2021 muestran que la autocratización ya no procede necesariamente a un ritmo lento y gradual. Estos golpes también ilustran que la autocratización no se limita a las democracias. La consolidación del poder en manos de unos pocos también se está produciendo en los países autocráticos. 
+
+En segundo lugar, la polarización alcanzó niveles mundiales sin precedentes en 2021. Los líderes de 40 países contribuyeron a aumentar considerablemente la polarización tóxica durante la última década. Por el contrario, la polarización disminuyó sólo en 6 países. En los niveles actuales, la polarización y la autocratización forman un círculo vicioso que se refuerza mutuamente.
+
+La polarización se vuelve tóxica cuando alcanza niveles extremos. Los bandos de "nosotros contra ellos" empiezan a cuestionar la legitimidad moral de los demás y comienzan a tratar a la oposición como una amenaza existencial para un modo de vida o una nación. Una vez que las élites políticas y sus seguidores dejan de creer que los oponentes políticos son legítimos y merecen el mismo respeto, las normas y reglas democráticas pueden dejarse de lado para "salvar la nación". Se trata de una evolución peligrosa.
+
+En tercer lugar, y relacionado con lo anterior, los gobiernos utilizan cada vez más la desinformación como herramienta para manipular la opinión pública y su reputación internacional. La manipulación gubernamental de las estadísticas y el aumento de la desinformación en los medios digitales también muestran cómo los líderes políticos se están volviendo más audaces a la hora de fomentar la autocratización.
+
+## 2. OBJETIVO:
+
+Se realizara un análisis de la democracia alrededor del mundo durante el año 2021. Los niveles de democracia en el mundo suponen un desplome en el 2021 si se hace una comparación con años anteriores, por ello se verá en que magnitud se esta viendo afectada la democracia, lo cual ocasiona una tendencia hacia la autocratización.
+
+El objetivo principal de este informe es que ayude a comprender los retos que implica la democracia al rededor del mundo. 
+Las variables a utilizar son las siguientes:
+
+    *ÍNDICE:*
+
++ El índice liberal de la democracia: 
+
+Hace hincapié en la importancia de la protección de los derechos individuales y de los menores frentes a la tiranía del Estado y a la tiranía de la mayoría. El modelo liberal adopta una visión "negativa" del poder político, ya que juzga la calidad de la democracia por los límites impuestos al gobierno. Esto se consigue mediante las libertades civiles protegidas por la Constitución, un fuerte estado de derecho, un poder judicial independiente y controles y equilibrios eficaces que, en conjunto, limitan el ejercicio del poder ejecutivo. Para que sea una medida de la democracia liberal, el índice también tiene en cuenta el nivel de democracia electoral.
+
++ Censura Gubernamental:
+
+a. Censura gubernamental  (v2mecenefm) ¿Intenta el gobierno censurar directa o indirectamente los medios de comunicación impresos o audiovisuales? Las formas indirectas de censura pueden incluir la adjudicación de frecuencias de emisión por motivos políticos, la retirada de apoyo financiero, la inﬂuencia sobre las instalaciones de impresión y las redes de distribución, la distribución selectiva de publicidad, los requisitos onerosos de registro, los aranceles prohibitivos y el soborno. 
+
+b. La censura en Internet (v2meceneﬁ) ¿Intenta el gobierno censurar la información (textual, sonora o visual) en Internet? Los intentos de censura incluyen el ﬁltrado de Internet (bloqueo del acceso a determinados sitios web o navegadores), los ataques de denegación de servicio y los cierres parciales o totales de Internet. 
+
+c. Acoso a periodistas (v2meharjrn) ¿Los periodistas individuales son acosados - es decir, amenazados de difamación, arrestados, encarcelados, golpeados o asesinados - por actores gubernamentales o no gubernamentales poderosos mientras realizan actividades periodísticas legítimas?
+
++ Poder Judicial y exclusión social:
+
+a. Independencia de la Corte Suprema (v2juhcind_ord) Cuando el alto tribunal del sistema judicial se pronuncia en casos que son importantes para el gobierno, ¿con qué frecuencia diría usted que toma decisiones que simplemente reflejan los deseos del gobierno, sin tener en cuenta su sincera visión de los antecedentes legales? 
+
+b. Independencia de las otras cortes (v2juncind_ord) Cuando los jueces que no están en el alto tribunal fallan en casos que son importantes para el gobierno, ¿con qué frecuencia diría usted que sus decisiones reflejan simplemente los deseos del gobierno, independientemente de su visión sincera del expediente legal?
+
+c. Acceso a oportunidades de negocios con el Estado a partir de posición socioeconómica (v2peasbecon_ord) ¿Las oportunidades de negocio del Estado están disponibles por igual para las personas cualificadas, independientemente de su posición socioeconómica? Las oportunidades de negocio del Estado se refieren a la capacidad de competir o recibir un contrato público, de asociarse con el gobierno en asociaciones público-privadas, etc. de contratación pública, de asociarse con el gobierno en asociaciones público-privadas, etc. La posición socioeconómica define a grupos basados en atributos de riqueza, ocupación u otras circunstancias económicas, como la posesión de propiedades.
+
+## 3. METODOLOGÍA:
+
+En este sentido, para fines de este reporte, se realizará lo siguiente:
+
+En primer lugar, se utilizará una variable dependiente que es el índice de democracia liberal, y se hará una regresión para ver la relación que tiene con las variables independientes, las cuales son Censura gubernamental, Censura en internet y Acoso hacia periodistas. 
+
+------ 
+
+>Como hipótesis se sostiene que existe una relación de dependencia de estas tres variables independientes con el índice de democracia liberal.
+
+En segundo lugar, se realizará un análisis de conglomerados para disminuir dimensiones y hacer un cálculo de cuántos clusters se van a constituir, para ello se hará uso de los métodos: particionante, jerárquica aglomerativa y jerárquica divisiva. Cada una de ellas nos proporcionará un número sugerido de clusters para luego visualizarlos y ver cuál es el método que mejor agrupa los casos. Para la realización de esta técnica se usará seis variables independientes, tres de censura gubernamental y otras tres de poder judicial y exclusión social.
+
+------ 
+
+>Como hipótesis tenemos que a partir del gráfico de siluetas podremos ver que técnica tiene el mayor puntaje y agrupa mejor los casos.
+
+En tercer lugar, realizaremos un análisis factorial  con las mismas seis variables con el fin de reducirlas y ver cuántos factores nos sugiere la técnica y/o están detrás del concepto de Democracia Liberal.
+
+------
+
+>Como hipótesis se sostiene que existe solo un factor que está detrás del comportamiento de esas seis variables, ya que todas son partes de índice de democracia liberal.
+
+## 4. HIPÓTESIS GENERAL:
+
+Los resultados obtenidos de estas técnicas se leen de manera clara y concisa, además que son sumamente necesarias para mostrar la dependencia de las variables independientes del índice de democracia liberal. 
+
+## 5. ANÁLISIS:
+
+Como se hizo mención en el objetivo central de este informe la variable dependiente será el  índice de democracia liberal (v2x_libdem) y las variables independientes: censura gubernamental a medios de comunicación (v2mecenefm_ord), censura gubernamental en internet (v2mecenefi_ord),  hostigamiento hacia periodistas (v2meharjrn_ord), independencia de la Corte Suprema (v2juhcind_ord), independencia de las otras cortes (v2juncind_ord) y acceso a oportunidades de negocios con el Estado a partir de la posición socioeconómica (v2peasbecon_ord).
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+
+library(rio)
+library(DescTools)
+library(ggplot2)
+library(moments)
+library(Rmisc)
+library(e1071)
+library(psych)
+library(dplyr)
+library(gplots)
+library(vcd)
+library(PMCMRplus)
+library(nortest)
+library(car)
+library(stargazer)
+library(lm.beta)
+library(gtools)
+library(jtools)
+library(ggstance)
+library(broom.mixed)
+library(fastDummies)
+library(writexl)
+library(lmtest)
+library(polycor)
+library(ggcorrplot)
+library(matrixcalc)
+library(GPArotation)
+library(lavaan)
+library(BBmisc)
+library(cluster)
+library(factoextra)
+library(qpcR)
+vdem = import("https://github.com/astrid1212/Entregable4/blob/main/V-Dem-CY-Core-v12.rds?raw=true")
+```
+
+* Variable dependiente 
+  - Índice de Democracia Liberal (v2x_libdem)
+```{r,echo=FALSE}
+str(vdem$v2x_libdem)
+summary(vdem$v2x_libdem)
+```
+* Variables independientes 
+  + Censura Gubernamental
+  + Censura Gubernamental a Medios de Comunicación (v2mecenefm_ord)
+```{r,echo=FALSE}
+str(vdem$ v2mecenefm_ord)
+summary(vdem$v2mecenefm_ord)
+```
+  + Censura Gubernamental en Internet (v2mecenefi_ord)
+```{r,echo=FALSE}
+str(vdem$v2mecenefi_ord)
+summary(vdem$v2mecenefi_ord)
+```
+  + Hostigamiento hacia periodistas (v2meharjrn_ord)
+```{r,echo=FALSE}
+str(vdem$v2meharjrn_ord)
+summary(vdem$v2meharjrn_ord)
+```
+
+```{r,echo=FALSE}
+vdem_astrid = subset(vdem, select = c(country_name, year, v2x_libdem, v2mecenefm_ord, v2mecenefi_ord, v2meharjrn_ord))
+vdem_astrid = vdem_astrid[vdem_astrid$year==2021,]
+vdem_astrid[, c(4:6)] = lapply(vdem_astrid[, c(4:6)], ordered)
+str(vdem_astrid$v2meharjrn_ord)
+```
+
+  + Poder Judicila y exclusión social
+  + Independencia de la Corte Suprema (v2juhcind_ord)
+```{r,echo=FALSE}
+str(vdem$v2juhcind_ord)
+summary(vdem$v2juhcind_ord)
+```
+  + Independencia de las otras cortes (v2juncind_ord)
+```{r,echo=FALSE}
+str(vdem$v2juncind_ord)
+summary(vdem$v2juncind_ord)
+```
+  + Acceso a oportunidades de negocios con el Estado a partir de posición socioeconómica (v2peasbecon_ord)
+```{r,echo=FALSE}
+str(vdem$v2peasbecon_ord)
+summary(vdem$v2peasbecon_ord)
+```
+
+## 6. PRIMERA PARTE: ANÁLISIS DE REGRESIÓN
+
+Al probar esta hipótesis vemos, que la primera variable con mayor efecto es hostigamiento hacia periodistas (v2meharjrn),  tiene un efecto significativo al 0.5 (indicado por el asterisco); segundo, que ese efecto es directo, pues el coeficiente calculado es positivo; y tercero que la magnitud de ese efecto es 0.356 lo que indica cuanto varia el índice de la democracia liberal en promedio cuando hostigamiento hacia periodistas se incrementa en una unidad. 
+
+-----
+
+Los periodistas individuales son acosados, amenazados de difamación, arrestados, encarcelados, golpeados o asesinados por actores gubernamentales o no gubernamentales poderosos mientras realizan actividades periodísticas legítimas afecta al índice de democracia liberal. 
+
+La segunda variable con mayor efecto es Censura gubernamental (v2mecenefm_ord), tiene un efecto significativo al 0.5 (indicado por el asterisco); segundo, que ese efecto es directo, pues el coeficiente calculado es positivo; y tercero que la magnitud de ese efecto es 0.171 lo que indica cuanto varia el índice de la democracia liberal en promedio cuando censura gubernamental se incrementa en una unidad. 
+
+------
+
+Intenta el gobierno censurar la información (textual, sonora o visual) en Internet afecta el índice de democracia liberal.
+
+```{r,echo=FALSE}
+modeloa <- lm(v2x_libdem~v2mecenefm_ord+v2mecenefi_ord+v2meharjrn_ord, data=vdem_astrid)
+summary(modeloa)
+```
+## 7. ANEXO: ANÁLSIS DE REGRESIÓN
+
+- Observar en stargazer
+```{r,echo=FALSE}
+stargazer(modeloa, type = "text")
+```
+
+- Comprobar supuestos de regresión lineal
+
+  - Linealidad:  La linealidad tiende a la horizontalidad, lo que señala que existe relación    entre los tres factores y el índice de democracia liberal. 
+```{r,echo=FALSE}
+plot(modeloa, 1)
+```
+
+  - Homocedasticidad:El modelo no muestra homocedasticidad, se asume que el error del modelo de regresión no afecta la varianza o dispersión de la estimación. El p.value< 0.5.
+```{r,echo=FALSE}
+plot(modeloa, 3)
+```
+
+  - Test de Breusch-Pagan
+```{r,echo=FALSE}
+bptest(modeloa)
+```
+
+  - Normalidad de residuos: No hay normalidad de residuos, el p.value es menor a 0.5, puntos cerca de la diagonal.
+```{r,echo=FALSE}
+plot(modeloa, 2)
+shapiro.test(modeloa$residuals)
+```
+
+  - No multicolinealidad: Los predictores no tienen una correlación alta, lo cual demuestra que no hay multicolinealidad, lo cual es favorable porque  los estimadores obtenidos y la precisión de éstos no se ven seriamente afectados. 
+```{r,echo=FALSE}
+VIF(modeloa)
+```
+
+  - Valores influyentes: Existen valores influyentes perdidos, que se encuentra en el punto 9432.
+```{r,echo=FALSE}
+plot(modeloa, 5)
+```
+
+```{r,echo=FALSE}
+checkmoda = as.data.frame(influence.measures(modeloa)$is.inf)
+head(checkmoda)
+```
+
+## 8. ANEXO: ANÁLISIS DE CLUSTER
+
+```{r,echo=FALSE}
+cluster_astrid = subset(vdem, select = c(country_name, year, v2x_libdem, v2mecenefm_ord, v2mecenefi_ord, v2meharjrn_ord, v2juhcind_ord, v2juncind_ord, v2peasbecon_ord))
+cluster_astrid = cluster_astrid[cluster_astrid$year==2021,]
+row.names(cluster_astrid) = cluster_astrid$country_name
+cluster_astrid$country_name = NULL
+cluster_astrid$year = NULL
+cluster_astrid$v2x_libdem = NULL
+cluster_astrid = cluster_astrid[complete.cases(cluster_astrid),] 
+g.dist = daisy(cluster_astrid[, c(1:6)], metric = "gower")
+```
+
+
++ Estrategia particionante
+
+
+```{r,echo=FALSE}
+fviz_nbclust(cluster_astrid[, c(1:6)], pam, diss = g.dist, method = "gap_stat", k.max = 10, verbose = F)
+```
+
+
++ Estrategia jerárquica aglomerativa
+
+
+```{r,echo=FALSE}
+fviz_nbclust(cluster_astrid[, c(1:6)], hcut, diss = g.dist, method = "gap_stat", k.max = 10, verbose = F, hc_func = "agnes")
+```
+
+
+
++ Estrategia jerárquica divisiva
+
+```{r,echo=FALSE}
+fviz_nbclust(cluster_astrid[, c(1:6)], hcut, diss = g.dist, method = "gap_stat", k.max = 10, verbose = F, hc_func = "diana")
+```
+
++ Hacer asignación de clusters en base a número de clusters recomendados
+  + Clusterización no jerárquica (PAM)
+```{r,echo=FALSE}
+res.pam = pam(g.dist, k = 4, cluster.only = F)
+cluster_astrid$clustPT = res.pam$cluster
+```
+  + Clusterización agrupativa (AGNES)
+```{r,echo=FALSE}
+res.agnes = hcut(g.dist, k = 8, hc_func = "agnes", hc_method = "ward.D")
+cluster_astrid$clustAG = res.agnes$cluster
+```
+  + Clusterización divisiva (DIANA)
+```{r,echo=FALSE}
+res.diana = hcut(g.dist, k = 4, hc_func = "diana")
+cluster_astrid$clustDIV = res.diana$cluster
+```
++ Dar puntaje a la clusterización
+
+
+
+  + Clusterización no jerárquica (PAM)
+  
+```{r,echo=FALSE}
+fviz_silhouette(res.pam)
+```
+ 
+ 
+ 
+ 
+  + Clusterización agrupativa (AGNES)
+  
+```{r,echo=FALSE}
+fviz_silhouette(res.agnes)
+```
+  
+  
+  
+  + Clusterización divisiva (DIANA)
+  
+```{r,echo=FALSE}
+fviz_silhouette(res.diana)
+```
+
++ Encontrar los casos mal clusterizados según cada método
+
+
+  + Clusterización no jerárquica (PAM)
+```{r,echo=FALSE}
+silPAM = data.frame(res.pam$silinfo$widths)
+silPAM$country = row.names(silPAM)
+malPAM = silPAM[silPAM$sil_width<0,"country"]%>%sort() 
+```
+  + Clusterización agrupativa (AGNES)
+```{r,echo=FALSE}
+silAGNES = data.frame(res.agnes$silinfo$widths)
+silAGNES$country = row.names(silAGNES)
+malAGNES = silAGNES[silAGNES$sil_width<0,"country"]%>%sort() 
+```
+  + Clusterización divisiva (DIANA)
+```{r,echo=FALSE}
+silDIANA = data.frame(res.diana$silinfo$widths)
+silDIANA$country = row.names(silDIANA)
+malDIANA = silDIANA[silDIANA$sil_width<0,"country"]%>%sort() 
+```
+  + Juntar elementos mal clusterizados en un solo data frame
+```{r,echo=FALSE}
+mal_Clus = as.data.frame(qpcR:::cbind.na(malPAM, malAGNES, malDIANA))
+mal_Clus
+```
+
+## 9. SEGUNDA PARTE: ANÁLISIS DE CLUSTER
+Graficar la mejor clusterización (PAM): Como nos interesa clusterizar todos los casos  el modelo que mejor explica es PAM porque los residuos son menores en comparación con los otros. 
+
+```{r,echo=FALSE}
+proyeccion = cmdscale(g.dist, k=2,add = T) 
+cluster_astrid$dim1 <- proyeccion$points[,1]
+cluster_astrid$dim2 <- proyeccion$points[,2]
+base = ggplot(cluster_astrid, aes(x=dim1, y=dim2,label=row.names(cluster_astrid))) 
+base + geom_text(size = 2, aes(color = as.factor(clustPT))) + labs(title = "PAM") 
+```
+
+
+
+
+En el gráfico de países se visualiza  que Ecuador y Filipinas son cercanas en cuanto refiere a censura  gubernamental. En cambio, Papúa Nueva Guinea es cercana a Liberia con respecto a censura a internet.  Existe una gran diferencia entre República Dominicana y Corea del Sur con respecto al acoso hacia periodistas, en el primer país este fenómeno es mayor. Con respecto a Bielorrusia y la República Democrática del Congo, también hay una amplia diferencia en cuanto refiere a la independencia de la Corte Suprema, en el segundo pais la independencia es menor. 
+
+## 10.ANEXO: ANÁLISIS FACTORIAL
++ Armar la base de apoyo
+```{r,echo=FALSE}
+factor_astrid= subset(vdem, select = c(country_name, year, v2x_libdem, v2mecenefm_ord, v2mecenefi_ord, v2meharjrn_ord , v2juhcind_ord, v2juncind_ord, v2peasbecon_ord))
+factor_astrid = factor_astrid[factor_astrid$year==2021, ]
+factor_astrid$country_name = NULL
+factor_astrid$year = NULL
+factor_astrid$v2x_libdem = NULL
+```
+Análisis Factorial Exploratorio: Las variables de poder judicial y exclusión social con las variables de censura gubernamental poseen una correlación alta porque el valor es mayor que 0, la cual indica que existe una correlación positiva. En este caso las variables estarían asociadas en sentido directo. Cuanto más cerca de +1, más alta es su asociación. Un valor exacto de +1 indicaría una relación lineal positiva perfecta.
+
+Explorar las correlaciones entre las variables
+```{r,echo=FALSE}
+corMatrix_a = polycor::hetcor(factor_astrid)$correlations
+corMatrix_a
+```
++ Graficar la matriz de correlaciones
+```{r,echo=FALSE}
+ggcorrplot(corMatrix_a)
+```
++ Verificar validez del análisis factorial: Las variables si se pueden factorizar porque MSA es mayor a 0.6. Se descarta la matriz de identidad y matriz singular. 
+Verificar si variables se pueden factorizar
+Overall MSA es mayor a 0.6, por lo que el análisis factorial es factible.
+```{r,echo=FALSE}
+psych::KMO(corMatrix_a)
+```
++ Descartar una posible matriz de identidad
+Sale FALSE (p-value NO es mayor a 0.05), por lo que el análisis factorial es factible.
+```{r,echo=FALSE}
+cortest.bartlett(corMatrix_a, n = nrow(factor_astrid))$p.value>0.05
+```
++ Descartar una posible matriz singular
+Sale FALSE, por lo que el análisis factorial es factible.
+```{r,echo=FALSE}
+is.singular.matrix(corMatrix_a)
+```
++ Determinar en cuántos factores se pueden agrupar las variables
+```{r,echo=FALSE}
+fa.parallel(factor_astrid, fm = "ML", fa = "fa")
+```
++ Observar las cargas factoriales y ver en qué factores se ubicaría cada variable
+```{r,echo=FALSE}
+resfa_a <- fa(factor_astrid, nfactors = 1, cor = "cor", rotate = "varimax", fm = "minres")
+print(resfa_a$loadings, cutoff = 0.5)
+```
+
+## 11. TERCERA PARTE:ANÁLISIS FACTORIAL
++ Graficar cómo se agrupan las variables
+```{r,echo=FALSE}
+fa.diagram(resfa_a)
+```
++ Evaluar los resultados obtenidos
+
+Las variables que aportaron más al modelo son Independencia de la Corte Suprema y Censura Gubernamental a Medios de Comunicación. 
+
++ ¿Qué variables aportaron más a los factores?
+```{r,echo=FALSE}
+sort(resfa_a$communality)
+```
++ Observar los posibles valores proyectados
+Para grabar en la base los puntajes de los factores
+```{r,echo=FALSE}
+factor_astrid$puntaje = resfa_a$scores
+```
+---
+Significa que Independencia de la Corte Suprema y censura gubernamental a los medios de comunicación son factores que influyen demasiado afectando el índice de democracia liberal.
+
+Análisis Factorial Confirmatorio: Todas las variables tienen buena relación con el factor creado. El p.value< 0.5 indica que la variable observable tiene buena relación con su latente. 
+
++ Construir modelo lineal
+```{r,echo=FALSE}
+modeloa <- ' factor_a  =~ v2mecenefm_ord+v2mecenefi_ord+v2meharjrn_ord+v2juhcind_ord+v2juncind_ord+v2peasbecon_ord'
+```
+
+
++ Crear un objeto para hacer las validaciones 
+```{r,echo=FALSE}
+cfa_fit <- cfa(modeloa, data= factor_astrid, 
+           std.lv=TRUE,  
+           missing="fiml")
+```
+
++ Preparar los test para las validaciones
+```{r,echo=FALSE}
+allParamCFA=parameterEstimates(cfa_fit,standardized = T)
+allFitCFA=as.list(fitMeasures(cfa_fit))
+```
+
+Ver si cada variable tiene buena relación con su factor (p.value< 0.5 indica que la variable observable tiene buena relación con su latente)
+```{r,echo=FALSE}
+allParamCFA[allParamCFA$op=="=~",]
+```
+
++ Ver si la asignación de variables ha sido relativamente buena, el p.value debe ser mayor a 0.05 para que sea bueno: 
+
+La asignación de las variables no fue buena porque el p.value es menor a 0.5, además, el índice Tucker Lewi es menor a 0.9, y la raíz del error cuadrático medio de aproximación es mayor a 0.05.
+```{r,echo=FALSE}
+allFitCFA[c("chisq", "df", "pvalue")]
+```
++ El Índice Tucker Lewi es mayor a 0.9? Es menor.
+```{r,echo=FALSE}
+allFitCFA$tli
+```
++ La Raíz del error cuadrático medio de aproximación es menor a 0.05? No, es mayor
+```{r,echo=FALSE}
+allFitCFA[c('rmsea.ci.lower','rmsea' ,'rmsea.ci.upper')]
+```
++ Hacer predicciones (scores) de las variables latentes
+```{r,echo=FALSE}
+scorescfa=normalize(lavPredict(cfa_fit),
+                    method = "range", 
+                    margin=2, # by column
+                    range = c(0, 10))
+```
+
+```{r,echo=FALSE}
+factor_astrid$prediccion = scorescfa
+```
++ Veamos ambos scores calculados
+```{r,echo=FALSE}
+ggplot(data=factor_astrid,aes(x=prediccion,y=puntaje)) + geom_point() + theme_minimal()
+```
+
+## 12. CONCLUSIONES:
+
+Si bien no es siempre posible identificar la causalidad directa con 100% de certeza, en el presente informe mediante el consiguiente análisis se ha corroborado que tanto las variables de censura gubernamental, Poder Judicial y exclusión social están fuertemente relacionadas, afectando de esta manera al índice de democracia liberal de los paises,  claramente en unas en mayor fuerza que en otras. En este sentido, se afirma que la autocratización es un situación ya existente y que irá aumentando.
+
+El reporte nos proporciono evidencia gráfica sobre cuáles son las relaciones entre el índice de democracia liberal con las variables de censura gubernamental, Poder Judicial y exclusión social.
+
